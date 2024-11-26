@@ -43,5 +43,5 @@ jobs:
       run: go test -v ./...
 
     - name: Build Docker image
-      run: docker build -t fibonacci-web-service ./web-service
+      run: docker build -t fibonacci-web-service .
       # This is where we could push to a registry, sign the image, etc.
