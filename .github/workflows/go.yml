@@ -20,9 +20,12 @@ jobs:
         go-version: 1.23.2
 
     - name: Install dependencies
+      working-directory: ./web-service
       run: go mod download
 
+
     - name: Format code
+      working-directory: ./web-service
       run: |
         fmt_output=$(gofmt -l .)
         if [ -n "$fmt_output" ]; then
@@ -32,9 +35,11 @@ jobs:
         fi
 
     - name: Build
+      working-directory: ./web-service
       run: go build -v ./...
 
     - name: Run tests
+      working-directory: ./web-service
       run: go test -v ./...
 
     - name: Build Docker image
